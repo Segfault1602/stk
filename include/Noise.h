@@ -40,7 +40,7 @@ public:
   StkFloat lastOut( void ) const { return lastFrame_[0]; };
 
   //! Compute and return one output sample.
-  StkFloat tick( void );
+  StkFloat tick(void) override;
 
   //! Fill a channel of the StkFrames object with computed outputs.
   /*!
@@ -50,7 +50,7 @@ public:
     is defined during compilation, in which case an out-of-range value
     will trigger an StkError exception.
   */
-  StkFrames& tick( StkFrames& frames, unsigned int channel = 0 );
+  StkFrames& tick(StkFrames& frames, unsigned int channel = 0) override;
 
 protected:
 

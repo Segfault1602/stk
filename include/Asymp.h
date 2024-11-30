@@ -76,7 +76,7 @@ class Asymp : public Generator
   StkFloat lastOut( void ) const { return lastFrame_[0]; };
 
   //! Compute and return one output sample.
-  StkFloat tick( void );
+  StkFloat tick(void) override;
 
   //! Fill a channel of the StkFrames object with computed outputs.
   /*!

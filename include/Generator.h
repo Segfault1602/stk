@@ -30,6 +30,8 @@ class Generator : public Stk
   //! Return an StkFrames reference to the last output sample frame.
   const StkFrames& lastFrame( void ) const { return lastFrame_; };
 
+  virtual float tick() = 0;
+
   //! Fill the StkFrames object with computed sample frames, starting at the specified channel.
   /*!
     The \c channel argument plus the number of output channels must

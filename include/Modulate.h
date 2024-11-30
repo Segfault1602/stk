@@ -43,7 +43,7 @@ class Modulate : public Generator
 
   //! Set the periodic (vibrato) rate or frequency in Hz.
   void setRandomRate( StkFloat rate ) {  noiseRate_ = (unsigned int) ( rate * Stk::sampleRate() / 22050.0 ); };
-  
+
   //! Set the random modulation gain.
   void setRandomGain( StkFloat gain );
 
@@ -51,7 +51,7 @@ class Modulate : public Generator
   StkFloat lastOut( void ) const { return lastFrame_[0]; };
 
   //! Compute and return one output sample.
-  StkFloat tick( void );
+  StkFloat tick(void) override;
 
   //! Fill a channel of the StkFrames object with computed outputs.
   /*!
@@ -61,11 +61,10 @@ class Modulate : public Generator
     is defined during compilation, in which case an out-of-range value
     will trigger an StkError exception.
   */
-  StkFrames& tick( StkFrames& frames, unsigned int channel = 0 );
+  StkFrames& tick(StkFrames& frames, unsigned int channel = 0) override;
 
- protected:
-
-  void sampleRateChanged( StkFloat newRate, StkFloat oldRate );
+protected:
+  void sampleRateChanged(StkFloat newRate, StkFloat oldRate) override;
 
   SineWave vibrato_;
   Noise noise_;
