@@ -72,9 +72,9 @@ class BlitSaw: public Generator
     is defined during compilation, in which case an out-of-range value
     will trigger an StkError exception.
   */
-  StkFrames& tick( StkFrames& frames, unsigned int channel = 0 );
+  StkFrames& tick(StkFrames& frames, unsigned int channel = 0) override;
 
- protected:
+protected:
 
   void updateHarmonics( void );
 
